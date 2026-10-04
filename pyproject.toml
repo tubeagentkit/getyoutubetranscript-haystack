@@ -1,0 +1,48 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "getyoutubetranscript-haystack"
+version = "0.1.0"
+description = "YouTube transcript fetcher for Haystack pipelines and agents: get YouTube video transcripts (optionally with timestamps) as Documents, via the GetYouTubeTranscript API."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "tubeagentkit" }]
+keywords = ["haystack", "haystack-ai", "deepset", "youtube", "youtube-transcript", "transcript", "captions", "subtitles", "agents", "rag", "llm", "tools", "fetcher", "data-ingestion"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Multimedia :: Video",
+]
+dependencies = [
+    "haystack-ai>=2.0.0",
+    "getyoutubetranscript>=0.3.0,<1.0.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7.0"]
+
+[project.urls]
+Homepage = "https://getyoutubetranscript.com"
+Documentation = "https://github.com/tubeagentkit/getyoutubetranscript-haystack#readme"
+Repository = "https://github.com/tubeagentkit/getyoutubetranscript-haystack"
+"API reference" = "https://getyoutubetranscript.com/docs"
+"Get an API key" = "https://getyoutubetranscript.com/dashboard"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/haystack_integrations"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
